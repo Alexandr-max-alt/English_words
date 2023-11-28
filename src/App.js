@@ -25,10 +25,9 @@ function App() {
       setMemorized(renderCards.memorized)
       setListMemorization(renderCards.cardsForMemory)
       setIsLoading(false)
-
       checkLocal()
     } else {
-      fetch('/data.json')
+      fetch('https://65573e73bd4bcef8b6124ef7.mockapi.io/Cards')
       .then(res => res.json())
       .then(json => {
         setCards(json)
@@ -41,6 +40,7 @@ function App() {
     }
   }, []);
 
+  
   React.useEffect(() => {
     if (!showMemory) {
         const index = getRandom(cards);
